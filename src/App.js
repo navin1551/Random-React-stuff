@@ -28,6 +28,7 @@ export default class App extends React.Component {
   };
 
   render() {
+    console.log(this.state);
     let name = this.state.name.map((name, id) => (
       <Name name={this.state.name} key={id} />
     ));

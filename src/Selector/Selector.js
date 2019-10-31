@@ -11,9 +11,12 @@ export default class Selector extends React.Component {
   updateSubmitHandler = e => {
     e.preventDefault();
     const { updatedName, updatedAge, updatedCity } = this.state;
-    this.props.update(updatedName);
-    this.props.update(updatedAge);
-    this.props.update(updatedCity);
+    this.props.update(updatedName, updatedAge, updatedCity);
+    this.setState({
+      updatedName: " ",
+      updatedAge: " ",
+      updatedCity: " "
+    });
   };
 
   nameChangeHandler = e => {
