@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Selector from "./Selector/Selector";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  state = {
+    name: "",
+    age: "",
+    city: ""
+  };
+
+  fieldSubmitHandler = newEntries => {
+    this.setState({
+      name: newEntries
+    });
+  };
+
+  render() {
+    return (
+      <div className="app">
+        <p>Random React Stuff</p>
+        <div className="info-area">
+          <span>Name:{this.state.name}</span>
+          <span>Age:{this.state.age}</span>
+          <span>City:{this.state.city}</span>
+        </div>
+        <div>
+          <Selector update={this.fieldSubmitHandler} />
+        </div>
+      </div>
+    );
+  }
 }
-
-export default App;
