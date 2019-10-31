@@ -13,9 +13,9 @@ export default class Selector extends React.Component {
     const { updatedName, updatedAge, updatedCity } = this.state;
     this.props.update(updatedName, updatedAge, updatedCity);
     this.setState({
-      updatedName: " ",
-      updatedAge: " ",
-      updatedCity: " "
+      updatedName: "",
+      updatedAge: "",
+      updatedCity: ""
     });
   };
 
@@ -42,13 +42,25 @@ export default class Selector extends React.Component {
       <div className="form-area">
         <form onSubmit={this.updateSubmitHandler}>
           <label>Update Name</label>
-          <input type="text" onChange={this.nameChangeHandler} />
+          <input
+            value={this.state.updatedName}
+            type="text"
+            onChange={this.nameChangeHandler}
+          />
           <br />
           <label>Update Age</label>
-          <input type="number" onChange={this.ageChangeHandler} />
+          <input
+            value={this.state.updatedAge}
+            type="number"
+            onChange={this.ageChangeHandler}
+          />
           <br />
           <label>Update City</label>
-          <input type="text" onChange={this.cityChangeHandler} />
+          <input
+            value={this.state.updatedCity}
+            type="text"
+            onChange={this.cityChangeHandler}
+          />
           <br />
           <button>Update</button>
         </form>

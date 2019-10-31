@@ -9,7 +9,8 @@ export default class App extends React.Component {
   state = {
     name: [],
     age: [],
-    city: []
+    city: [],
+    displayText: false
   };
 
   fieldSubmitHandler = (name, age, city) => {
@@ -24,6 +25,12 @@ export default class App extends React.Component {
       name: currentName,
       age: currentAge,
       city: currentCity
+    });
+  };
+
+  toggle = () => {
+    this.setState({
+      displayText: !this.state.displayText
     });
   };
 
@@ -44,6 +51,10 @@ export default class App extends React.Component {
         </div>
         <div>
           <Selector update={this.fieldSubmitHandler} />
+        </div>
+        <div>
+          <button onClick={this.toggle}>Toggle</button>
+          {!this.state.displayText && <p>Some Text</p>}
         </div>
       </div>
     );
